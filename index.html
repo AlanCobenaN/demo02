@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090d12" />
+
+    <!-- SEO -->
+    <title>NAVAL Barbería — Barbería del puerto en Manta, Ecuador</title>
+    <meta
+      name="description"
+      content="NAVAL es la barbería del puerto en Manta, Ecuador: cortes, barba con navaja y cuidado masculino. Agenda tu hora por WhatsApp en menos de un minuto."
+    />
+    <meta name="author" content="NAVAL Barbería" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://naval-manta.vercel.app/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:site_name" content="NAVAL Barbería" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:title" content="NAVAL Barbería — Barbería del puerto en Manta, Ecuador" />
+    <meta
+      property="og:description"
+      content="Cortes, barba con navaja y cuidado masculino en Manta. Agenda tu hora por WhatsApp en menos de un minuto."
+    />
+    <meta property="og:url" content="https://naval-manta.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Corte de cabello en la barbería NAVAL de Manta" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NAVAL Barbería — Barbería del puerto en Manta, Ecuador" />
+    <meta
+      name="twitter:description"
+      content="Cortes, barba con navaja y cuidado masculino. Agenda tu hora por WhatsApp."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop"
+    />
+
+    <!-- Schema.org: JSON-LD HairSalon -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "NAVAL Barbería",
+        "description": "Barbería del puerto en Manta, Ecuador. Cortes, barba con navaja y cuidado masculino.",
+        "url": "https://naval-manta.vercel.app/",
+        "image": "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop",
+        "telephone": "+593 99 123 4567",
+        "email": "hola@navalbarber.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Flavio Reyes y Calle 15",
+          "addressLocality": "Manta",
+          "addressRegion": "Manabí",
+          "addressCountry": "EC"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -0.94975,
+          "longitude": -80.71787
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "680"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "09:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/naval.barberia",
+          "https://www.facebook.com/naval.barberia"
+        ]
+      }
+    </script>
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Analytics: Google Analytics 4 se carga solo cuando pongas tu ID real (reemplaza G-XXXXXXX) -->
+    <script>
+      window.gaId = 'G-XXXXXXX'
+      window.dataLayer = window.dataLayer || []
+      window.gtag = function () {
+        window.dataLayer.push(arguments)
+      }
+      if (window.gaId && window.gaId.startsWith('G-') && !window.gaId.startsWith('G-XXX')) {
+        document.write(
+          '<script async src="https://www.googletagmanager.com/gtag/js?id=' + window.gaId + '"><\/script>',
+        )
+        window.gtag('js', new Date())
+        window.gtag('config', window.gaId, { send_page_view: false })
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-ink-950: #090d12;
+  --color-ink-900: #10161d;
+  --color-ink-800: #182128;
+  --color-ink-700: #232f3a;
+
+  --color-bone-50: #f2f4f5;
+  --color-bone-100: #dfe4e8;
+  --color-bone-300: #a8b4bd;
+  --color-bone-400: #7d8a96;
+
+  --color-copper-300: #ff6b5e;
+  --color-copper-400: #e8403a;
+  --color-copper-500: #c22f2c;
+  --color-copper-600: #96241f;
+
+  --color-steel-300: #a8c3d6;
+  --color-steel-400: #7fa4bd;
+  --color-steel-500: #5d829c;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ink-950);
+  color: var(--color-bone-50);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+::selection {
+  background-color: var(--color-copper-400);
+  color: var(--color-ink-950);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-700);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-copper-500);
+}
+
+/* Red industrial sutil de fondo */
+.grid-noise {
+  background-image:
+    linear-gradient(to right, rgb(178 190 201 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(178 190 201 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Etiqueta mono condensada con tachada roja */
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* Esquinas cortadas estilo industrial/barbería */
+.cut {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+}
+.cut-l {
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
+}
+
+/* Ficha / ticket con borde perforado */
+.ticket {
+  background-image: radial-gradient(circle, #090d12 6px, transparent 6.5px);
+  background-size: 22px 22px;
+}
+
+/* Poste de barbería: franjas en diagonal animadas */
+.barber-pole {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #e8403a 0 12px,
+    #f2f4f5 12px 24px,
+    #e8403a 24px 36px,
+    #182128 36px 48px
+  );
+  background-size: 200% 200%;
+  animation: pole-move 3.2s linear infinite;
+}
+@keyframes pole-move {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 64px 0;
+  }
+}
+
+/* Marquee (cinta deslizante) */
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Texto vertical */
+.v-text {
+  writing-mode: vertical-rl;
+}
+
+/* Trazo grueso tipo pincel (recorte de titulares) */
+.hl-red {
+  color: var(--color-ink-950);
+  background: var(--color-copper-400);
+  padding: 0 0.18em;
+}
+
+/* Botones duros con esquinas cortadas */
+.btn-sharp {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
