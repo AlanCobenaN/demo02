@@ -202,10 +202,8 @@ export default function OwnerDashboard({ open, onClose }) {
               ) : null}
 
               <p className="mt-5 border-2 border-bone-50/10 bg-ink-950/40 p-4 text-xs leading-relaxed text-bone-400">
-                Estos eventos también se reenvían a Google Analytics 4 (dataLayer → gtag). Pega tu ID real en
-                <code className="text-copper-300"> index.html</code> (campo <code className="text-copper-300">G-XXXXXXX</code>)
-                para verlos en GA4 junto con país, dispositivo y procedencia de todos tus visitantes. Mientras el ID sea placeholder,
-                nada se envía a Google.
+                Estos eventos se registran en el <code className="text-copper-300">localStorage</code> de este navegador
+                para el panel del propietario.
               </p>
             </div>
 
