@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Crown, Droplets, Scissors, ShoppingBag, Sparkles } from 'lucide-react'
+import { Crown, Scissors, Sparkles, Timer, Zap } from 'lucide-react'
 import { menu } from '../data.js'
 import { money } from '../lib/whatsapp.js'
 import SectionHead from './SectionHead.jsx'
 import Reveal from './Reveal.jsx'
 
 const icons = {
-  cortes: Scissors,
+  corte: Scissors,
   barba: Sparkles,
-  combos: Crown,
-  cuidado: Droplets,
-  productos: ShoppingBag,
+  combo: Crown,
+  disenos: Zap,
+  otros: Timer,
 }
 
-export default function Menu({ cartCount, onAdd }) {
+export default function Menu() {
   const [active, setActive] = useState(menu[0].id)
   const category = menu.find((c) => c.id === active)
 
@@ -22,9 +22,9 @@ export default function Menu({ cartCount, onAdd }) {
     <section id="servicios" className="mx-auto max-w-6xl px-6 py-24">
       <SectionHead
         number="01"
-        eyebrow="Servicios"
-        title="Navaja, tijera y estilo del puerto"
-        lead="Elige tu servicio, añade algún extra y agéndalo por WhatsApp. Si no sabes qué pedir, cualquier corte de la casa te queda bien."
+        eyebrow="Servicios y precios"
+        title="Precio claro. Sin letra chica."
+        lead="Cada servicio con su precio y su tiempo de silla. Elige, mira y agenda por WhatsApp."
       />
 
       {/* Barra de categorías: segmentos rectos */}
@@ -41,7 +41,7 @@ export default function Menu({ cartCount, onAdd }) {
               }`}
               aria-pressed={isActive}
             >
-              <span className={`text-[0.6rem] ${isActive ? 'text-ink-950/70' : 'text-steel-400'}`}>
+              <span className={`text-[0.6rem] ${isActive ? 'text-ink-950/70' : 'text-bone-400'}`}>
                 0{i + 1}
               </span>
               <Icon className={`h-4 w-4 ${isActive ? 'text-ink-950' : 'text-copper-400'}`} />
@@ -51,14 +51,14 @@ export default function Menu({ cartCount, onAdd }) {
         })}
       </Reveal>
 
-      {/* Listado de servicios: filas con índice */}
+      {/* Listado de servicios: filas con índice, duración y precio */}
       <AnimatePresence mode="wait">
         <motion.ul
           key={active}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.2 }}
           className="mt-6 border-2 border-bone-50/10 bg-ink-950/60"
         >
           {category.items.map((item, i) => (
@@ -66,80 +66,35 @@ export default function Menu({ cartCount, onAdd }) {
               key={item.name}
               initial={{ opacity: 0, x: -14 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
-              className="group grid gap-4 border-t-2 border-bone-50/10 p-5 first:border-t-0 hover:bg-ink-900/70 sm:grid-cols-[64px_96px_1fr_auto] sm:items-center"
+              transition={{ duration: 0.25, delay: i * 0.05 }}
+              className="group grid gap-3 border-t-2 border-bone-50/10 p-5 first:border-t-0 hover:bg-ink-900/70 sm:grid-cols-[48px_1fr_auto_auto] sm:items-center"
             >
               <span className="font-display text-3xl text-bone-400/40 transition-colors group-hover:text-copper-400">
                 {String(i + 1).padStart(2, '0')}
               </span>
 
-              <img
-                src={item.photo}
-                alt={item.name}
-                className="hidden aspect-square w-24 object-cover sm:block"
-                loading="lazy"
-              />
-
-              <div className="flex min-w-0 flex-col gap-2">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <h3 className="font-display text-2xl uppercase leading-none text-bone-50 transition-colors group-hover:text-copper-300">
-                    {item.name}
-                  </h3>
-                  {item.tag ? (
-                    <span className="bg-copper-400 px-2 py-0.5 font-mono text-[0.6rem] font-bold uppercase tracking-[0.14em] text-ink-950">
-                      {item.tag}
-                    </span>
-                  ) : null}
-                </div>
+              <div className="flex min-w-0 flex-col gap-1.5">
+                <h3 className="font-display text-2xl uppercase leading-none text-bone-50 transition-colors group-hover:text-white">
+                  {item.name}
+                </h3>
                 <p className="text-xs leading-relaxed text-bone-400">{item.description}</p>
-                <div className="flex flex-wrap items-center gap-2">
-                  <div className="flex flex-wrap gap-1.5">
-                    {item.includes.map((inc) => (
-                      <span
-                        key={inc}
-                        className="border border-bone-50/15 px-2 py-0.5 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-bone-300"
-                      >
-                        {inc}
-                      </span>
-                    ))}
-                  </div>
-                  {item.extras ? (
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      {item.extras.map((extra) => (
-                        <button
-                          key={extra.label}
-                          onClick={() => onAdd(item, extra)}
-                          className="border border-copper-400/50 px-2 py-0.5 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-copper-300 transition-colors hover:bg-copper-400 hover:text-ink-950"
-                          title={`Añadir ${extra.label}`}
-                        >
-                          + {extra.label} · {money(extra.price)}
-                        </button>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
+                <span className="flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-bone-400">
+                  <Timer className="h-3.5 w-3.5 text-copper-400" />
+                  Aprox. {item.duration}
+                </span>
               </div>
 
-              <div className="flex items-center justify-between gap-4 sm:flex-col sm:items-end sm:gap-3">
-                <span className="font-display text-3xl text-copper-300">{money(item.price)}</span>
-                <button
-                  onClick={() => onAdd(item)}
-                  className="btn-sharp cut-l bg-bone-50 px-5 py-2.5 text-ink-950 transition-colors hover:bg-copper-400"
-                >
-                  Agendar
-                </button>
-              </div>
+              <span className="flex items-end gap-1 self-center" aria-hidden="true">
+                <span className="mb-1 hidden w-28 border-b-2 border-dotted border-bone-50/20 sm:block" />
+              </span>
+
+              <span className="font-display text-4xl text-copper-300">
+                {money(item.price)}
+              </span>
             </motion.li>
           ))}
         </motion.ul>
       </AnimatePresence>
-
-      {cartCount > 0 ? (
-        <p className="mt-5 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-steel-400">
-          <span className="inline-block h-2 w-2 bg-copper-400" />
-          {cartCount} servicio{cartCount > 1 ? 's' : ''} en tu agenda — confírmalo con el botón inferior
-        </p>
-      ) : null}
     </section>
   )
 }

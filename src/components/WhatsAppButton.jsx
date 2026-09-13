@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { CalendarCheck, ShoppingBag, X } from 'lucide-react'
+import { CalendarCheck, X } from 'lucide-react'
 import { BUSINESS, menu } from '../data.js'
 import { whatsappLink } from '../lib/whatsapp.js'
 import { track } from '../lib/analytics.js'
@@ -8,21 +8,21 @@ import { WhatsAppIcon } from './icons.jsx'
 
 // WhatsApp inteligente: el mensaje llega redactado según lo que el cliente quiere.
 function buildMessages(section) {
-  const popular = menu[0]?.items?.[1]?.name || 'Corte Clásico'
+  const popular = menu[0]?.items?.[1]?.name || 'Fade + Diseño'
   const base = `¡Hola ${BUSINESS.name}!`
   switch (section) {
-    case 'agenda':
-      return `${base} Quiero agendar una hora. ¿Qué horarios tienen libres esta semana?`
-    case 'productos':
-      return `${base} Quiero comprar productos de la casa. ¿Me pueden cotizar?`
+    case 'reservar':
+      return `${base} Quiero reservar una cita. Hoy estuve viendo la página y me interesa la silla. ¿Qué horarios tienen libres esta semana?`
+    case 'precios':
+      return `${base} Quiero conocer los precios de los servicios (cortes, barbas y combos).`
     default:
-      return `${base} Tengo una consulta sobre los servicios, precios o el ${popular}.`
+      return `${base} Tengo una consulta sobre el ${popular} o algún otro servicio.`
   }
 }
 
 const options = [
-  { id: 'agenda', label: 'Agendar hora', icon: CalendarCheck },
-  { id: 'productos', label: 'Comprar productos', icon: ShoppingBag },
+  { id: 'reservar', label: 'Reservar cita', icon: CalendarCheck },
+  { id: 'precios', label: 'Precios', icon: WhatsAppIcon },
   { id: 'consulta', label: 'Tengo una consulta', icon: WhatsAppIcon },
 ]
 

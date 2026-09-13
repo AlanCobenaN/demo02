@@ -1,7 +1,7 @@
 // # Configuración general de la barbería — edita aquí nombre, teléfono, datos de contacto.
 export const BUSINESS = {
   name: 'NAVAL',
-  tagline: 'Barbería del puerto — estilo costeño',
+  tagline: 'Barbería urbana — el puerto a puro filo',
   whatsapp: '593991234567', // número con código de país, sin '+' ni espacios ni guiones
   phone: '+593 99 123 4567',
   email: 'hola@navalbarber.com',
@@ -11,8 +11,8 @@ export const BUSINESS = {
   facebook: 'naval.barberia',
   url: 'https://naval-manta.vercel.app/',
   rating: '4.8',
-  reviewsCount: '680',
-  since: 2014,
+  reviewsCount: '420',
+  since: 2022,
 }
 
 export const images = {
@@ -26,57 +26,42 @@ export const images = {
   manPortrait: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=900&auto=format&fit=crop',
   grooming: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=900&auto=format&fit=crop',
   salon: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop',
+  man2: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop',
+  man3: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=900&auto=format&fit=crop',
 }
 
 export const heroImage = images.barberCut
 
-// # Servicios de la barbería
-// Cada categoría: id, label, icon y services.
-// Cada service: name, description, includes[], price, extras[{label, price}], tag (opcional), photo.
+// # Servicios y precios — cada categoría: id, label y services.
+// Cada service: name, description, price (visible) y duration (duración aproximada).
 export const menu = [
   {
-    id: 'cortes',
-    label: 'Cortes',
+    id: 'corte',
+    label: 'Corte',
     items: [
       {
         name: 'Corte Clásico',
-        description: 'El clásico costeño: máquina, tijera y definición de patillas al detalle.',
-        includes: ['Máquina y tijera', 'Definición de patillas', 'Lavado y peinado'],
+        description: 'Máquina, tijera y patillas definidas.',
         price: 8,
-        extras: [{ label: 'Perfilado de cejas', price: 2 }],
-        photo: images.barberCut,
+        duration: '40 min',
       },
       {
         name: 'Fade + Diseño',
-        description: 'Degradado limpio con línea a mano, sellado con máquina cero.',
-        includes: ['Degradado', 'Diseño de línea', 'Pomada y acabado'],
+        description: 'Degradado limpio con línea a mano.',
         price: 10,
-        extras: [{ label: 'Cejas', price: 2 }],
-        tag: 'Más solicitado',
-        photo: images.fade,
-      },
-      {
-        name: 'Corte Infantil',
-        description: 'Para los más pequeños: paciencia, máquina y un caramelo al final.',
-        includes: ['Corte a su medida', 'Algodón y talco'],
-        price: 6,
-        photo: images.grooming,
+        duration: '50 min',
       },
       {
         name: 'Degradado Naval',
-        description: 'Nuestro sello de la casa: fade alto, textura y acabado tipo naval.',
-        includes: ['Fade alto', 'Texturizado', 'Toalla caliente'],
+        description: 'Nuestro sello: fade alto, textura y acabado.',
         price: 12,
-        extras: [{ label: 'Barba +', price: 5 }],
-        tag: 'Estrella',
-        photo: images.razor,
+        duration: '60 min',
       },
       {
-        name: 'Corte + Lavado de Cabeza',
-        description: 'Corte completo con lavado en tina, masaje capilar y café después.',
-        includes: ['Corte + tina', 'Masaje capilar', 'Café de la casa'],
-        price: 9,
-        photo: images.barberShop,
+        name: 'Corte Infantil',
+        description: 'Corte a su medida y paciencia de sobra.',
+        price: 6,
+        duration: '30 min',
       },
     ],
   },
@@ -86,128 +71,125 @@ export const menu = [
     items: [
       {
         name: 'Afeitado Clásico',
-        description: 'Toalla caliente, navaja de la casa y bálsamo de cierre. Origen: la tradición.',
-        includes: ['Toalla caliente', 'Navaja', 'Bálsamo'],
+        description: 'Toalla caliente, navaja y bálsamo.',
         price: 8,
-        extras: [{ label: 'Mascarilla facial', price: 3 }],
-        tag: 'Tradición',
-        photo: images.beard,
+        duration: '35 min',
       },
       {
         name: 'Perfilado de Barba',
-        description: 'Diseño, recorte y aceite de barba para dejarla firme y afilada.',
-        includes: ['Recorte', 'Diseño de contorno', 'Aceite de barba'],
+        description: 'Diseño, recorte y aceite de barba.',
         price: 6,
-        extras: [{ label: 'Cera fijadora', price: 1.5 }],
-        photo: images.manPortrait,
+        duration: '25 min',
       },
       {
         name: 'Arreglo + Cera',
-        description: 'Ajuste de barba con trazo de cera para mantenerla en línea toda la semana.',
-        includes: ['Ajuste de barba', 'Cera de diseño'],
+        description: 'Ajuste con cera para mantener la línea.',
         price: 7,
-        photo: images.pole,
+        duration: '20 min',
       },
     ],
   },
   {
-    id: 'combos',
-    label: 'Combos',
+    id: 'combo',
+    label: 'Corte + Barba',
     items: [
       {
         name: 'Combo Corte + Barba',
-        description: 'El plan completo del puerto: corte de la casa más perfilado de barba.',
-        includes: ['Corte', 'Perfilado de barba', 'Pomada y café'],
+        description: 'El plan completo: corte más perfilado.',
         price: 14,
-        extras: [{ label: 'Cejas incluidas', price: 0 }],
-        tag: 'Popular',
-        photo: images.barberCut,
+        duration: '70 min',
       },
       {
         name: 'Full Naval',
-        description: 'Corte, barba con navaja, lavado y manicura rápida. El tratamiento completo.',
-        includes: ['Corte + barba', 'Lavado en tina', 'Manicura rápida'],
+        description: 'Corte, barba con navaja y lavado.',
         price: 18,
-        extras: [{ label: 'Mascarilla', price: 3 }],
-        tag: 'Favorito',
-        photo: images.barberShop,
-      },
-      {
-        name: 'Dúo entre Pibes',
-        description: 'Dos cortes clásicos para ir en familia: papá e hijo, o dos amigos.',
-        includes: ['2 cortes clásicos', '2 cafés de la casa'],
-        price: 12,
-        tag: 'Para compartir',
-        photo: images.grooming,
+        duration: '90 min',
       },
     ],
   },
   {
-    id: 'cuidado',
-    label: 'Cuidado',
+    id: 'disenos',
+    label: 'Diseños',
+    items: [
+      {
+        name: 'Línea / Patrón',
+        description: 'Diseño a máquina cero en el fade.',
+        price: 5,
+        duration: '20 min',
+      },
+      {
+        name: 'Cejas',
+        description: 'Diseño de ceja para enmarcar la cara.',
+        price: 4,
+        duration: '15 min',
+      },
+    ],
+  },
+  {
+    id: 'otros',
+    label: 'Otros servicios',
     items: [
       {
         name: 'Manicura Masculina',
-        description: 'Corte de cutícula, limado y crema de manos. Simple y necesario.',
-        includes: ['Limado', 'Cutícula', 'Hidratación'],
+        description: 'Limado, cutícula e hidratación.',
         price: 6,
-        photo: images.barberTools,
+        duration: '25 min',
       },
       {
         name: 'Limpieza Facial',
-        description: 'Vapor, extracción suave y mascarilla. Carita de descanso garantizada.',
-        includes: ['Vapor', 'Extracción', 'Mascarilla'],
+        description: 'Vapor, extracción y mascarilla.',
         price: 8,
-        extras: [{ label: 'Más puntos negros', price: 2 }],
-        photo: images.salon,
+        duration: '30 min',
       },
       {
-        name: 'Cera de Cejas',
-        description: 'Diseño de ceja con yaquila para darle marco al rostro.',
-        includes: ['Diseño', 'Cera de yaquila'],
-        price: 4,
-        photo: images.pole,
-      },
-    ],
-  },
-  {
-    id: 'productos',
-    label: 'Productos',
-    items: [
-      {
-        name: 'Pomada Costeña',
-        description: 'Fijación media, brillo natural y olor a Mar y coco. 100 g.',
-        includes: ['Fijación media', 'Brillo natural'],
-        price: 9,
-        photo: images.barberTools,
-      },
-      {
-        name: 'Aceite de Barba Naval',
-        description: 'Mezcla de aceites naturales y aroma de cedro. 30 ml.',
-        includes: ['Argan y jojoba', 'Aroma de cedro'],
-        price: 10,
-        photo: images.beard,
-      },
-      {
-        name: 'Tónico Refrescante',
-        description: 'Menta, eucalipto y ruda de monte para después del corte.',
-        includes: ['Menta y eucalipto', 'Sin alcohol'],
+        name: 'Lavado + Masaje',
+        description: 'Tina, masaje capilar y café de la casa.',
         price: 7,
-        photo: images.manPortrait,
+        duration: '25 min',
       },
     ],
   },
 ]
 
-// # Servicios disponibles para agendar por WhatsApp
+// # Servicios disponibles para agendar por WhatsApp (Reservar)
 export const serviceOptions = [
-  { name: 'Corte Clásico', duration: '40 min' },
-  { name: 'Fade + Diseño', duration: '50 min' },
-  { name: 'Degradado Naval', duration: '60 min' },
-  { name: 'Afeitado Clásico', duration: '35 min' },
-  { name: 'Perfilado de Barba', duration: '25 min' },
-  { name: 'Combo Corte + Barba', duration: '70 min' },
-  { name: 'Full Naval', duration: '90 min' },
+  { name: 'Corte Clásico', duration: '40 min', price: 8 },
+  { name: 'Fade + Diseño', duration: '50 min', price: 10 },
+  { name: 'Degradado Naval', duration: '60 min', price: 12 },
+  { name: 'Combo Corte + Barba', duration: '70 min', price: 14 },
+  { name: 'Full Naval', duration: '90 min', price: 18 },
+]
+
+// # Barberos del equipo
+export const barbers = [
+  {
+    name: 'Lucho “El Capitán”',
+    specialty: 'Fade y tijera clásica',
+    photo: images.manPortrait,
+    tag: '10 años de silla',
+  },
+  {
+    name: 'Carlos “Cobra”',
+    specialty: 'Diseños y máquina cero',
+    photo: images.man2,
+    tag: 'El de los patrones',
+  },
+  {
+    name: 'Andrés “El Griego”',
+    specialty: 'Barba con navaja caliente',
+    photo: images.man3,
+    tag: 'Toalla caliente',
+  },
+]
+
+// # Galería — foto, categoría (Cortes / Barbas / Diseños)
+export const gallery = [
+  { photo: images.fade, category: 'Cortes' },
+  { photo: images.barberCut, category: 'Cortes' },
+  { photo: images.beard, category: 'Barbas' },
+  { photo: images.razor, category: 'Barbas' },
+  { photo: images.barberShop, category: 'Diseños' },
+  { photo: images.grooming, category: 'Diseños' },
 ]
 
 // # Horarios y reseñas
@@ -228,7 +210,7 @@ export const reviews = [
     role: 'Cliente fijo',
   },
   {
-    text: 'Ambiente tranquilo, buen rock suave y precio justo. Volví sabiendo que me iban a atender bien. Es la barbería del puerto.',
+    text: 'Ambiente fuerte, buen rock y precio justo. Volví sabiendo que me iban a atender bien. Es la barbería del puerto.',
     name: 'José W.',
     role: 'Reseña de Facebook',
   },

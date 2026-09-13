@@ -7,9 +7,9 @@ import { BarberPoleIcon } from './icons.jsx'
 
 const links = [
   { href: '#servicios', label: 'Servicios', n: '01' },
-  { href: '#citas', label: 'Citas', n: '02' },
-  { href: '#nosotros', label: 'Nosotros', n: '03' },
-  { href: '#visitanos', label: 'Visítanos', n: '04' },
+  { href: '#barberos', label: 'Barberos', n: '02' },
+  { href: '#galeria', label: 'Galería', n: '03' },
+  { href: '#reservar', label: 'Reservar', n: '04' },
 ]
 
 export default function Navbar() {
@@ -31,25 +31,25 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
-        scrolled ? 'bg-ink-950/90 backdrop-blur-md border-b border-bone-50/10' : 'bg-transparent'
+        scrolled ? 'bg-ink-950/95 backdrop-blur-md border-b-2 border-bone-50/10' : 'bg-transparent'
       }`}
     >
-      <div className="absolute inset-x-0 top-0 h-1 bg-copper-400" />
+      <div className="absolute inset-x-0 top-0 h-1.5 bg-copper-400" />
       <div className="mx-auto flex h-[76px] max-w-6xl items-center justify-between px-6">
         <a
           href="#top"
           className="group flex items-center gap-3"
           onClick={() => go('top')}
         >
-          <span className="flex h-10 w-10 items-center justify-center bg-copper-400 cut">
+          <span className="flex h-10 w-10 items-center justify-center bg-copper-400 cut-l">
             <BarberPoleIcon className="h-6 w-6 text-ink-950" />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-2xl uppercase text-bone-50 transition-colors group-hover:text-copper-300">
+            <span className="font-display text-2xl uppercase text-bone-50 transition-colors group-hover:text-white">
               {BUSINESS.name}
             </span>
-            <span className="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.32em] text-steel-400">
-              Manta · EC
+            <span className="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.32em] text-bone-400">
+              Barber · Manta EC
             </span>
           </span>
         </a>
@@ -68,9 +68,9 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href="#citas" onClick={() => go('citas')}>
-            <button className="btn-sharp cut-l bg-copper-400 px-5 py-2.5 text-ink-950 transition-colors hover:bg-copper-300">
-              Agendar hora
+          <a href="#reservar" onClick={() => go('reservar')}>
+            <button className="btn-sharp cut bg-copper-400 px-5 py-2.5 text-ink-950 transition-colors hover:bg-copper-300">
+              Reservar cita
             </button>
           </a>
         </nav>
@@ -90,7 +90,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-bone-50/10 bg-ink-950/95 backdrop-blur-md md:hidden"
+            className="overflow-hidden border-t-2 border-bone-50/10 bg-ink-950/95 backdrop-blur-md md:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-6">
               {links.map((link) => (
@@ -98,15 +98,15 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => go(link.label.toLowerCase())}
-                  className="flex items-baseline gap-3 border-b border-bone-50/10 py-3 font-mono text-lg uppercase tracking-[0.14em] text-bone-100"
+                  className="flex items-baseline gap-3 border-b-2 border-bone-50/10 py-3 font-mono text-lg uppercase tracking-[0.14em] text-bone-100"
                 >
                   <span className="text-xs text-copper-400">{link.n}</span>
                   {link.label}
                 </a>
               ))}
-              <a href="#citas" onClick={() => go('citas')}>
+              <a href="#reservar" onClick={() => go('reservar')}>
                 <button className="btn-sharp cut mt-4 w-full bg-copper-400 py-3 text-ink-950">
-                  Agendar hora
+                  Reservar cita
                 </button>
               </a>
             </div>

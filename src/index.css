@@ -5,24 +5,24 @@
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-ink-950: #090d12;
-  --color-ink-900: #10161d;
-  --color-ink-800: #182128;
-  --color-ink-700: #232f3a;
+  --color-ink-950: #0a0a0a;
+  --color-ink-900: #141414;
+  --color-ink-800: #1f1f1f;
+  --color-ink-700: #2e2e2e;
 
-  --color-bone-50: #f2f4f5;
-  --color-bone-100: #dfe4e8;
-  --color-bone-300: #a8b4bd;
-  --color-bone-400: #7d8a96;
+  --color-bone-50: #ffffff;
+  --color-bone-100: #f2f2f2;
+  --color-bone-300: #b8b8b8;
+  --color-bone-400: #8a8a8a;
 
-  --color-copper-300: #ff6b5e;
-  --color-copper-400: #e8403a;
-  --color-copper-500: #c22f2c;
-  --color-copper-600: #96241f;
+  --color-copper-300: #ff3b30;
+  --color-copper-400: #e10600;
+  --color-copper-500: #b30000;
+  --color-copper-600: #8a0000;
 
-  --color-steel-300: #a8c3d6;
-  --color-steel-400: #7fa4bd;
-  --color-steel-500: #5d829c;
+  --color-steel-300: #9ca3af;
+  --color-steel-400: #6b7280;
+  --color-steel-500: #4b5563;
 }
 
 html {
@@ -60,8 +60,8 @@ body {
 /* Red industrial sutil de fondo */
 .grid-noise {
   background-image:
-    linear-gradient(to right, rgb(178 190 201 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(178 190 201 / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -74,7 +74,7 @@ body {
   font-weight: 600;
 }
 
-/* Esquinas cortadas estilo industrial/barbería */
+/* Dossier duro con esquinas cortadas estilo industrial/street */
 .cut {
   clip-path: polygon(
     0 0,
@@ -89,9 +89,27 @@ body {
   clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
 }
 
+/* Diagonal urbana: franjas finas sobre negro */
+.diag {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(255 255 255 / 0.06) 0 2px,
+    transparent 2px 10px
+  );
+}
+
+/* Franjas diagonales rojas (detalle de acento) */
+.diag-red {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #e10600 0 12px,
+    #0a0a0a 12px 24px
+  );
+}
+
 /* Ficha / ticket con borde perforado */
 .ticket {
-  background-image: radial-gradient(circle, #090d12 6px, transparent 6.5px);
+  background-image: radial-gradient(circle, #0a0a0a 6px, transparent 6.5px);
   background-size: 22px 22px;
 }
 
@@ -99,10 +117,10 @@ body {
 .barber-pole {
   background-image: repeating-linear-gradient(
     -45deg,
-    #e8403a 0 12px,
-    #f2f4f5 12px 24px,
-    #e8403a 24px 36px,
-    #182128 36px 48px
+    #e10600 0 12px,
+    #ffffff 12px 24px,
+    #e10600 24px 36px,
+    #141414 36px 48px
   );
   background-size: 200% 200%;
   animation: pole-move 3.2s linear infinite;

@@ -11,7 +11,7 @@ export default function Footer({ onOpenDashboard }) {
         {/* Bloque marca */}
         <div className="flex flex-col gap-5">
           <a href="#top" className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center bg-copper-400 cut">
+            <span className="flex h-12 w-12 items-center justify-center bg-copper-400 cut-l">
               <BarberPoleIcon className="h-7 w-7 text-ink-950" />
             </span>
             <span className="font-display text-4xl uppercase text-bone-50">
@@ -59,14 +59,20 @@ export default function Footer({ onOpenDashboard }) {
           <a href="#servicios" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
             Servicios
           </a>
-          <a href="#citas" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
-            Citas
+          <a href="#barberos" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
+            Barberos
           </a>
-          <a href="#nosotros" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
-            Nosotros
+          <a href="#galeria" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
+            Galería
           </a>
-          <a href="#visitanos" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
-            Visítanos
+          <a href="#reservar" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
+            Reservar
+          </a>
+          <a href="#ubicacion" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
+            Ubicación
+          </a>
+          <a href="#instagram" className="font-mono text-xs uppercase tracking-[0.12em] text-bone-300 transition-colors hover:text-bone-50">
+            Instagram
           </a>
           <button
             onClick={onOpenDashboard}
@@ -89,8 +95,8 @@ export default function Footer({ onOpenDashboard }) {
             {BUSINESS.phone}
           </a>
           <span className="font-mono text-xs text-bone-400">{BUSINESS.address}</span>
-          <a href="#citas" className="btn-sharp mt-2 w-fit border-2 border-copper-400/60 px-6 py-2.5 text-copper-300 transition-colors hover:bg-copper-400 hover:text-ink-950">
-            Agendar hora
+          <a href="#reservar" className="btn-sharp mt-2 w-fit border-2 border-copper-400/60 px-6 py-2.5 text-copper-300 transition-colors hover:bg-copper-400 hover:text-ink-950">
+            Reservar cita
           </a>
         </div>
       </div>
@@ -99,7 +105,7 @@ export default function Footer({ onOpenDashboard }) {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-bone-400 sm:flex-row">
         <p>© {year} {BUSINESS.name} Barbería — todos los derechos reservados</p>
         <p>
-          Navaja y tradición · <span className="text-copper-300/80">el puerto te espera</span>
+          A puro filo · <span className="text-copper-300/80">el puerto te espera</span>
         </p>
       </div>
     </footer>
